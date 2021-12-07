@@ -1,0 +1,148 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'users/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="{% static 'users/css/mdb.min.css' %}" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="{% static 'users/css/style.min.css' %}" rel="stylesheet">
+    <link href="{% static 'users\static\users\nav.css' %}" rel="stylesheet">
+    <link href="{% static 'users\static\users\footer.css' %}" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title> {% block title %} Home {% endblock title %}</title>
+
+    {% block head-css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'users/footer.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/nav.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/css/style.css' %}">
+    {% endblock %}
+</head>
+
+<body  >
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <span class="navbar-brand mb-0 h1" href="{% url 'home' %}">Crowd-Funding</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categories
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {% for c in categs %}
+                        <a class="dropdown-item" href="{% url 'show_cate' c.id %}">{{c.name}}</a>
+                        {% endfor %}
+                    </div>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'create_project' %}">New Project <span class="sr-only">(current)</span></a>
+                </li>
+                {% if user.is_authenticated %}
+
+                <li class="nav-item active">
+                    <a class=" nav-item nav-link" href="{% url 'users:logout' %}">logout<span
+                            class="sr-only">(current)</span></a>
+                </li>
+                {% else %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'login' %}">Login<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'users:signup' %}">Sign up<span
+                            class="sr-only">(current)</span></a>
+
+                </li>
+                {% endif %}
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'users:profile' user.id  %}">{{user.username}} <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                {% endif %}
+            </ul>
+            {% comment %}
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            {% endcomment %}
+        </div>
+    </nav>
+
+
+    <!-- This is where you'll put your page content. Leave it blank for now. -->
+    <div class="container">
+        {% block content %}Nothing Here{% endblock %}
+    </div>
+
+
+
+    <footer class="mainfooter" role="contentinfo">
+        <div class="footer-middle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-12 copy">
+                                <p class="text-center"><a href="https://github.com/Muhammad-Galhoum/crowdFunding-v1">
+                                        &copy; ITI 2021</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="{% static 'users/js/jquery-3.4.1.min.js' %}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{% static 'users/js/popper.min.js' %}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{% static 'users/js/bootstrap.min.js' %}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{% static 'users/js/mdb.min.js' %}"></script>
+
+</body>
+
+</html>

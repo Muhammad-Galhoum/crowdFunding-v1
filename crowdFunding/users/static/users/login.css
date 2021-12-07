@@ -1,0 +1,100 @@
+html,body {
+	height: 100%;
+}
+.containerlog{
+  background-image:  url('https://tallydataconnector.in/wp-content/uploads/2016/12/secure.jpg'); /* The image used */
+   /* Used if the image is unavailable */
+  height: 100vh; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+  
+  opacity: 0.9;
+  /* position: absolute; */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* height: auto; */
+
+}
+ 
+/* .containerlog{
+	width: 50%;
+} */
+.global-container{
+	height:100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+form{
+	padding-top: 10px;
+	font-size: 14px;
+	margin-top: 30px;
+	opacity: 1;
+}
+
+.card-title{ font-weight:300; }
+
+.btn-submit {
+	    border: 0;
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    background: #282aa7;
+    color: #fff;
+    margin-top: 20px;
+}
+
+
+.login-form{
+	width:330px;
+	box-shadow: 0 3px 13px #00000026;
+}
+
+.sign-up{
+	text-align:center;
+	padding:20px 0 0;
+	color: #000;
+
+}
+
+.alert{
+	margin-bottom:-30px;
+	font-size: 13px;
+	margin-top:20px;
+}
+
+.card-body{
+    margin:auto;
+}
+
+h1{ font-weight:900 ;
+	font-size: 30px;
+    color: #ffff;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 900;
+	font-style: oblique;
+}
+label { font-family: Arial, Helvetica, sans-serif;
+	font-weight: 900;
+	font-style: oblique;
+	color: #000;
+    display: block !important;
+    }
+input {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+
+}

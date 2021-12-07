@@ -1,0 +1,21 @@
+.media{
+    border:1px solid rgb(192, 194, 196);
+   width: 80%;
+   margin: auto;
+   padding: 10px;
+   /* text-align: center; */
+}
+.edit{
+    margin-top: 50px;
+    color: tomato;
+}
+.edita{
+   
+    color: rgb(250, 246, 245);
+}
+.phead{
+    margin-top: 20px;
+    text-align: center;
+    color: rgb(119, 116, 119);
+    font-size: 40px;
+}

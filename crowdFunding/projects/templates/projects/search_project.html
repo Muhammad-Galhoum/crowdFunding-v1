@@ -1,0 +1,26 @@
+{% extends 'projects/base.html' %}
+
+{% block content %}
+
+<center>
+{% if searched %}
+
+<h1>Hello, You Searched For {{searched}}</h1><br/>
+
+{% for project in projects %}
+
+    <a href = "{% url 'show_proj' project.id %}">{{project}}</a><br/>
+
+{% endfor %}
+
+{% else %}
+
+<h1>Hey! You Forgot To Search For Any Project Title or Project Tag </h1>
+
+{% endif %}
+
+</center>
+
+
+{% endblock %}
+

@@ -1,0 +1,28 @@
+{% extends "users/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'users/signup.css' %}">
+  <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-md-8 col-lg-8 col-xl-6 bord">
+          <div class="row">
+            <div class="col text-center title text-success">
+              <h1>Register</h1>
+            </div>
+          </div>
+  <form method="post" >
+    {% csrf_token %}
+    {% for field in form %}
+      {{ field|as_crispy_field }}
+    {% endfor %}
+	  <button type="submit" class="btn-submit">Sign up</button>
+  </form>
+			</div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}
+

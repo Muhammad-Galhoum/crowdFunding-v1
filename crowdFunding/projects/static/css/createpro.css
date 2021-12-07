@@ -1,0 +1,18 @@
+.bord{margin-top: 30px;
+    border: steelblue 3px;
+    border-style: groove; 
+  border-radius: 20px;
+  background-image:   radial-gradient(rgb(243, 124, 189), rgb(247, 247, 155), rgb(173, 166, 241));
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.bbb{
+      color: #395693;;
+  }
+  form {
+    font-family: monospace;
+    color: #395693;
+    font-weight: bold;
+    
+    
+  }
